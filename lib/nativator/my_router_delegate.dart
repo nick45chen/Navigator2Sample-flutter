@@ -20,7 +20,7 @@ class MyRouterDelegate extends RouterDelegate<MyRoutePath>
 
   @override
   Widget build(BuildContext context) {
-    throw Navigator(
+    return Navigator(
       key: navigatorKey,
       pages: pages,
       onPopPage: (route, result) {
@@ -33,4 +33,7 @@ class MyRouterDelegate extends RouterDelegate<MyRoutePath>
       },
     );
   }
+
+  // 創建頁面
+  MaterialPage _pageWrap(Widget child) => MaterialPage(key: ValueKey(child.hashCode), child: child);
 }
