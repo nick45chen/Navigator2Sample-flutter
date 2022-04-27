@@ -15,16 +15,20 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('HomePage')),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Text('點擊按鈕跳轉下一頁', style: TextStyle(fontSize: 18.0)),
-          MaterialButton(
-            onPressed: () => widget.onJumpToDetail,
-            child: const Text('跳轉詳情頁'),
-          )
-        ],
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text('點擊按鈕跳轉下一頁', style: TextStyle(fontSize: 18.0)),
+            MaterialButton(
+              onPressed: () => widget.onJumpToDetail?.call(DetailDataModel('12345', '測試名稱')),
+              child: const Text('跳轉詳情頁'),
+            )
+          ],
+        ),
       ),
     );
   }
