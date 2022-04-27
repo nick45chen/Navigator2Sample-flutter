@@ -17,12 +17,23 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    // 定義 route
-    var widget = Router(
-      routerDelegate: _routerDelegate,
-    );
-    return MaterialApp(
-      home: widget,
+    return FutureBuilder<void>(
+      future: Future.delayed(const Duration(seconds: 3)), // 模擬一些需要初始化的行為
+      builder: (context, snapshot) {
+        // 定義 route
+        var widget = snapshot.connectionState == ConnectionState.done
+            ? Router(
+                routerDelegate: _routerDelegate,
+              )
+            : const Scaffold(
+                body: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+        return MaterialApp(
+          home: widget,
+        );
+      },
     );
   }
 }
