@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_nativator2_sample/model/detail_data_model.dart';
 import 'package:flutter_nativator2_sample/pages/detail_page.dart';
 import 'package:flutter_nativator2_sample/pages/home_page.dart';
+import 'package:flutter_nativator2_sample/pages/login_page.dart';
+import 'package:flutter_nativator2_sample/pages/registration_page.dart';
 
 part 'my_route_path.dart';
+part 'route_status.dart';
 
 class MyRouterDelegate extends RouterDelegate<MyRoutePath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<MyRoutePath> {
